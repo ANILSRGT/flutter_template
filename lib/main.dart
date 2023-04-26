@@ -1,3 +1,4 @@
+import 'package:app_name/core/widgets/responsive/responsive_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -46,18 +47,27 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
-      title: ApplicationConstants.appName,
-      theme: context.watch<ThemeNotifier>().currentTheme.brightnessTheme(Brightness.light),
-      darkTheme: context.watch<ThemeNotifier>().currentTheme.brightnessTheme(Brightness.dark),
-      themeMode: context.watch<ThemeNotifier>().currentThemeMode,
-      navigatorKey: CustomNavigationService.instance.navigatorKey,
-      initialRoute: NavigationPathConstants.initial,
-      onGenerateRoute: NavigationManager.instance.generateRoute,
+    return Responsive(
+      breakPoints: const {
+        ResponsiveSize.xs: 640,
+        ResponsiveSize.sm: 768,
+        ResponsiveSize.md: 1024,
+        ResponsiveSize.lg: 1280,
+        ResponsiveSize.xl: 1536,
+      },
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
+        title: ApplicationConstants.appName,
+        theme: context.watch<ThemeNotifier>().currentTheme.brightnessTheme(Brightness.light),
+        darkTheme: context.watch<ThemeNotifier>().currentTheme.brightnessTheme(Brightness.dark),
+        themeMode: context.watch<ThemeNotifier>().currentThemeMode,
+        navigatorKey: CustomNavigationService.instance.navigatorKey,
+        initialRoute: NavigationPathConstants.initial,
+        onGenerateRoute: NavigationManager.instance.generateRoute,
+      ),
     );
   }
 }
