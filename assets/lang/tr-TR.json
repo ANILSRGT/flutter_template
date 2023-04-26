@@ -1,0 +1,28 @@
+{
+    "global": {
+        "errorOccurred": "Bir hata oluştu.",
+        "themeText": {
+            "system": "Sistem",
+            "light": "Açık",
+            "dark": "Koyu"
+        },
+        "utils": {
+            "pentaImagePicker": {
+                "selectImage": "Resim Seç",
+                "camera": "Kamera",
+                "gallery": "Galeri",
+                "selectImageFrom": "Resim Seç:",
+                "error": "Hata",
+                "fileTypeError": "{} dosya türüne izin verilmiyor.",
+                "allowedFileTpes": "İzin verilen dosya türleri: {}",
+                "ok": "Tamam"
+            },
+            "pentaExitApp": {
+                "exitApp": "Uygulamadan Çık",
+                "exitAppMessage": "Uygulamadan çıkmak istediğinize emin misiniz?",
+                "yes": "Evet",
+                "no": "Hayır"
+            }
+        }
+    }
+}

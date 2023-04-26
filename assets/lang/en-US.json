@@ -1,0 +1,28 @@
+{
+    "global": {
+        "errorOccurred": "An error occurred.",
+        "themeText": {
+            "system": "System",
+            "light": "Light",
+            "dark": "Dark"
+        },
+        "utils": {
+            "pentaImagePicker": {
+                "selectImage": "Select Image",
+                "camera": "Camera",
+                "gallery": "Gallery",
+                "selectImageFrom": "Select image from:",
+                "error": "Error",
+                "fileTypeError": "File type {} is not allowed.",
+                "allowedFileTpes": "Allowed file types: {}",
+                "ok": "OK"
+            },
+            "pentaExitApp": {
+                "exitApp": "Exit App",
+                "exitAppMessage": "Are you sure you want to exit the app?",
+                "yes": "Yes",
+                "no": "No"
+            }
+        }
+    }
+}
