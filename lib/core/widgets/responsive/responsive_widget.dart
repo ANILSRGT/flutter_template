@@ -26,22 +26,16 @@ class _ResponsiveWidgetState extends State<ResponsiveWidget> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (ctx, constraints) {
-        if (constraints.maxWidth >= 640 && constraints.maxWidth < 768 && widget.xs != null) {
-          return widget.xs!;
-        } else if (constraints.maxWidth >= 768 &&
-            constraints.maxWidth < 1024 &&
-            widget.sm != null) {
-          return widget.sm!;
-        } else if (constraints.maxWidth >= 1024 &&
-            constraints.maxWidth < 1280 &&
-            widget.md != null) {
-          return widget.md!;
-        } else if (constraints.maxWidth >= 1280 &&
-            constraints.maxWidth < 1536 &&
-            widget.lg != null) {
-          return widget.lg!;
-        } else if (constraints.maxWidth >= 1536 && widget.xl != null) {
-          return widget.xl!;
+        if (constraints.maxWidth >= 640 && constraints.maxWidth < 768) {
+          return widget.xs ?? widget.normal;
+        } else if (constraints.maxWidth >= 768 && constraints.maxWidth < 1024) {
+          return widget.sm ?? widget.xs ?? widget.normal;
+        } else if (constraints.maxWidth >= 1024 && constraints.maxWidth < 1280) {
+          return widget.md ?? widget.sm ?? widget.xs ?? widget.normal;
+        } else if (constraints.maxWidth >= 1280 && constraints.maxWidth < 1536) {
+          return widget.lg ?? widget.md ?? widget.sm ?? widget.xs ?? widget.normal;
+        } else if (constraints.maxWidth >= 1536) {
+          return widget.xl ?? widget.lg ?? widget.md ?? widget.sm ?? widget.xs ?? widget.normal;
         } else {
           return widget.normal;
         }
