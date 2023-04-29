@@ -44,11 +44,11 @@ class AgeCalculator {
   }
 
   static bool isAgeValidAppAge(DateTime birthDate) {
-    return isAgeValid(birthDate, ApplicationConstants.appAge);
+    return isAgeValid(birthDate, ApplicationConstants.appMaxAge);
   }
 
   static bool isAgeValidAppAgeFromYear(int year) {
-    return isAgeValidFromYear(year, ApplicationConstants.appAge);
+    return isAgeValidFromYear(year, ApplicationConstants.appMaxAge);
   }
 
   static DateTime getBirthDateFromAge(int age) {
@@ -64,7 +64,7 @@ class AgeCalculator {
     return year;
   }
 
-  static DateTime get getBirthDateFromAppAge => getBirthDateFromAge(ApplicationConstants.appAge);
+  static DateTime get getBirthDateFromAppAge => getBirthDateFromAge(ApplicationConstants.appMaxAge);
 
-  static int get getYearFromAppAge => getYearFromAge(ApplicationConstants.appAge);
+  static int get getYearFromAppAge => getYearFromAge(ApplicationConstants.appMaxAge);
 }

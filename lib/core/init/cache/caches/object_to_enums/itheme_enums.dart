@@ -1,6 +1,6 @@
 import '../../../../extension/all_extensions.dart';
 import '../../../theme/itheme.dart';
-import '../../../theme/themes/main_theme/main_theme.dart';
+import '../../../theme/themes/main_theme.dart/main_theme.dart';
 
 enum IThemeEnum {
   mainTheme,

@@ -12,7 +12,6 @@ class BaseAppColors {
   final Color black;
   final Color white;
   final Color grey;
-  final Color onGrey;
   final Color error;
   final Color onError;
   final Color warning;
@@ -32,7 +31,6 @@ class BaseAppColors {
     required this.white,
     required this.black,
     required this.grey,
-    required this.onGrey,
     required this.error,
     required this.onError,
     required this.warning,

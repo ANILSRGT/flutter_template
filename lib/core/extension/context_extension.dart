@@ -20,20 +20,20 @@ extension ContextExtension on BuildContext {
   double dynamicWidth(double value) => width * value;
 
   double dynamicOrientationSize(double value) =>
-      dynamicOrientation(dynamicHeight(value), dynamicWidth(value));
+      dynamicOrientation(dynamicHeight(value), dynamicWidth(value))!;
   double dynamicOrientationWidth(double portraitValue, double landscapeValue) =>
-      dynamicOrientation(dynamicWidth(portraitValue), dynamicWidth(landscapeValue));
+      dynamicOrientation(dynamicWidth(portraitValue), dynamicWidth(landscapeValue))!;
   double dynamicOrientationHeight(double portraitValue, double landscapeValue) =>
-      dynamicOrientation(dynamicHeight(portraitValue), dynamicHeight(landscapeValue));
+      dynamicOrientation(dynamicHeight(portraitValue), dynamicHeight(landscapeValue))!;
 
-  double staticOrientationWidth(double portraitValue, double landscapeValue) =>
+  double? staticOrientationWidth(double? portraitValue, double? landscapeValue) =>
       dynamicOrientation(portraitValue, landscapeValue);
-  double staticOrientationHeight(double portraitValue, double landscapeValue) =>
+  double? staticOrientationHeight(double? portraitValue, double? landscapeValue) =>
       dynamicOrientation(portraitValue, landscapeValue);
 
-  T dynamicBrightness<T>(T forLight, T forDark) =>
+  T? dynamicBrightness<T>(T forLight, T forDark) =>
       brightness == Brightness.light ? forLight : forDark;
-  T dynamicOrientation<T>(T forPortrait, T forLandscape) =>
+  T? dynamicOrientation<T>(T? forPortrait, T? forLandscape) =>
       width > height ? forLandscape : forPortrait;
   T dynamicResponsive<T>(T forWatch, T forMobile, T forTablet, T forDesktop) {
     if (width < 300) {
@@ -50,6 +50,10 @@ extension ContextExtension on BuildContext {
   double dynamicResponsivePerBeetweenSize(double beetween, double increaseAmount) {
     return width / beetween + increaseAmount;
   }
+}
+
+extension LocaleExtension on BuildContext {
+  Locale get currentLocale => LocalizationManager.instance.currentLocale(this);
 }
 
 extension ThemeExtension on BuildContext {

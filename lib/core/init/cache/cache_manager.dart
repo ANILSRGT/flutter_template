@@ -50,4 +50,24 @@ class CacheManager implements ICache {
   Future<bool> removes(List<CacheKey> keys) async {
     return await _cache?.removes(keys) ?? false;
   }
+
+  @override
+  bool? getBool(CacheKey key, {bool? defaultValue}) {
+    return _cache?.getBool(key, defaultValue: defaultValue);
+  }
+
+  @override
+  Future<bool> setBool(CacheKey key, bool? value) async {
+    return await _cache?.setBool(key, value) ?? false;
+  }
+
+  @override
+  int? getInt(CacheKey key, {int? defaultValue}) {
+    return _cache?.getInt(key, defaultValue: defaultValue);
+  }
+
+  @override
+  Future<bool> setInt(CacheKey key, int? value) async {
+    return await _cache?.setInt(key, value) ?? false;
+  }
 }

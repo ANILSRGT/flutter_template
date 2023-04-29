@@ -25,6 +25,8 @@ class LocalizationManager {
   Locale? _startLocale;
   Locale get startLocale => _startLocale ?? _enUSLocale;
 
+  Locale currentLocale(BuildContext ctx) => ctx.locale;
+
   void setLocale(BuildContext ctx, Locale locale) async {
     await ctx.setLocale(locale);
     await CacheManager.instance.setString(CacheKey.localeType, locale.localeName);
@@ -32,7 +34,7 @@ class LocalizationManager {
 }
 
 extension LocaleExtension on Locale {
-  String get localeName => '$languageCode-${countryCode!}';
+  String get localeName => '${languageCode}_${countryCode!}';
 }
 
 extension _StringExtension on String {

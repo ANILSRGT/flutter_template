@@ -9,6 +9,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:provider/provider.dart';
 
+import '../init/localization/localization_manager.dart';
 import '../init/localization/locale_keys.g.dart';
 import '../init/theme/base_app_colors.dart';
 import '../providers/theme_notifier.dart';
@@ -19,5 +20,5 @@ part 'enum_extension.dart';
 part 'network_extension.dart';
 part 'string_extension.dart';
 part 'text_style_extension.dart';
-part 'widget_extension.dart';
 part 'uint8list_extension.dart';
+part 'widget_extension.dart';

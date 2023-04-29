@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../init/ad/admob_service.dart';
+import '../init/audio/audio_manager.dart';
 import '../init/authentication/authentication_manager.dart';
 import '../init/cache/cache_manager.dart';
 import '../init/database/database_manager.dart';
@@ -22,6 +24,8 @@ abstract class BaseViewModel {
   NavigationManager navigationManager = NavigationManager.instance;
   StorageManager storageManager = StorageManager.instance;
   LocalizationManager localizationManager = LocalizationManager.instance;
+  AdmobService admobService = AdmobService.instance;
+  AudioManager audioManager = AudioManager.instance;
 
   void setContext(BuildContext context);
 

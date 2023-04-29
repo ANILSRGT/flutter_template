@@ -41,6 +41,12 @@ dependencies:
   # LOCALIZATION
   easy_localization: ^3.0.1
 
+  # Ads
+  google_mobile_ads: ^3.0.0
+
+  # Audio
+  audioplayers: ^4.0.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -97,4 +97,34 @@ class HiveCache implements ICache {
       return false;
     }
   }
+
+  @override
+  bool? getBool(CacheKey key, {bool? defaultValue}) {
+    final res = _box!.get(key.value, defaultValue: defaultValue);
+    if (res == null) return defaultValue;
+    return res;
+  }
+
+  @override
+  Future<bool> setBool(CacheKey key, bool? value) async {
+    await _box!.put(key.value, value);
+    final res = getBool(key);
+    if (res != null && res == value) return true;
+    return false;
+  }
+
+  @override
+  Future<bool> setInt(CacheKey key, int? value) async {
+    await _box!.put(key.value, value);
+    final res = getInt(key);
+    if (res != null && res == value) return true;
+    return false;
+  }
+
+  @override
+  int? getInt(CacheKey key, {int? defaultValue}) {
+    final res = _box!.get(key.value, defaultValue: defaultValue);
+    if (res == null) return defaultValue;
+    return res;
+  }
 }

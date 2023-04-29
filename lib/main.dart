@@ -5,6 +5,8 @@ import 'package:provider/provider.dart';
 
 import 'core/constants/app/application_constants.dart';
 import 'core/constants/navigation/navigation_path_constants.dart';
+import 'core/init/ad/admob_service.dart';
+import 'core/init/audio/audio_manager.dart';
 import 'core/init/authentication/authentication_manager.dart';
 import 'core/init/cache/cache_manager.dart';
 import 'core/init/database/database_manager.dart';
@@ -37,10 +39,12 @@ Future<void> _init() async {
   await DotEnvManager.initEnv();
   await CacheManager.instance.init();
   await LocalizationManager.instance.init();
+  await AdmobService.instance.init();
   await NetworkManager.instance.init();
   await StorageManager.instance.init();
   await DatabaseManager.instance.init();
   await AuthenticationManager.instance.init();
+  await AudioManager.instance.init();
 }
 
 class MyApp extends StatelessWidget {

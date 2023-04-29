@@ -2,6 +2,8 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 enum EnvKeys {
   none,
+  admobAndroidAppId,
+  admobAndroidBannerAdUnitId,
 }
 
 class DotEnvManager {
@@ -16,6 +18,10 @@ class DotEnvManager {
 
   String getEnv(EnvKeys key) {
     switch (key) {
+      case EnvKeys.admobAndroidAppId:
+        return dotenv.env['ADMOB_ANDROID_APP_ID']!;
+      case EnvKeys.admobAndroidBannerAdUnitId:
+        return dotenv.env['ADMOB_ANDROID_BANNER_AD_UNIT_ID']!;
       default:
         throw Exception('No such dotenv key');
     }

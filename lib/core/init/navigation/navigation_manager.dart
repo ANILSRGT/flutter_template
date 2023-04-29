@@ -16,7 +16,7 @@ class NavigationManager {
   Route<dynamic> generateRoute(RouteSettings args) {
     switch (args.name) {
       case NavigationPathConstants.initial:
-        return widgetNavigate(
+        return _widgetRoute(
           const Scaffold(),
           NavigationPathConstants.initial,
           arguments: args.arguments,
@@ -42,11 +42,25 @@ class NavigationManager {
     }
   }
 
-  MaterialPageRoute widgetNavigate(Widget widget, String pageName, {Object? arguments}) {
+  MaterialPageRoute _widgetRoute(Widget widget, String pageName, {Object? arguments}) {
     return MaterialPageRoute(
       builder: (context) => widget,
       //analytciste görülecek olan sayfa ismi için pageName veriyoruz
       settings: RouteSettings(name: pageName, arguments: arguments),
     );
+  }
+
+  Future<void> navigateToPageWithWidget(BuildContext context, Widget widget, String path) async {
+    await Navigator.of(context).push(_widgetRoute(widget, path));
+  }
+
+  Future<void> navigateToPageClearStackWithWidget(
+      BuildContext context, Widget widget, String path) async {
+    await Navigator.of(context).pushReplacement(_widgetRoute(widget, path));
+  }
+
+  Future<void> navigateToPageClearWithWidget(
+      BuildContext context, Widget widget, String path) async {
+    await Navigator.of(context).pushAndRemoveUntil(_widgetRoute(widget, path), (route) => false);
   }
 }

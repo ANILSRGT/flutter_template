@@ -18,6 +18,12 @@ extension StringExtension on String {
 
 extension StringImageExtension on String {
   SvgPicture get svgToImage => SvgPicture.asset(this);
+  SvgPicture svgToImageBrigthness(BuildContext context, String darkPath) {
+    return SvgPicture.asset(
+      Theme.of(context).brightness == Brightness.dark ? darkPath : this,
+    );
+  }
+
   SvgPicture svgToImageWithColor(Color color) => SvgPicture.asset(
         this,
         color: color,

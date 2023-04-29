@@ -4,7 +4,9 @@ import 'package:fluttertoast/fluttertoast.dart';
 import '../extension/all_extensions.dart';
 
 class ShowToats {
-  static void _showShort(BuildContext context, String msg, ToastGravity gravity) {
+  static void showShortBottom(BuildContext context, String msg, {bool cancel = false}) {
+    if (cancel) Fluttertoast.cancel();
+
     Fluttertoast.showToast(
       msg: msg,
       backgroundColor: context.colorScheme.onBackground,
@@ -16,20 +18,73 @@ class ShowToats {
     );
   }
 
-  static void _showLong(BuildContext context, String msg, ToastGravity gravity) {
+  static void showLongBottom(BuildContext context, String msg, {bool cancel = false}) {
+    if (cancel) Fluttertoast.cancel();
+
     Fluttertoast.showToast(
       msg: msg,
       backgroundColor: context.colorScheme.onBackground,
       textColor: context.colorScheme.background,
       toastLength: Toast.LENGTH_LONG,
-      gravity: ToastGravity.BOTTOM,
+      gravity: ToastGravity.TOP,
       timeInSecForIosWeb: 1,
       fontSize: 16.0,
     );
   }
-}
 
-extension ToastExtension on BuildContext {
-  void showShortToast(String msg, ToastGravity gravity) => ShowToats._showShort(this, msg, gravity);
-  void showLongToast(String msg, ToastGravity gravity) => ShowToats._showLong(this, msg, gravity);
+  static void showShortTop(BuildContext context, String msg, {bool cancel = false}) {
+    if (cancel) Fluttertoast.cancel();
+
+    Fluttertoast.showToast(
+      msg: msg,
+      backgroundColor: context.colorScheme.onBackground,
+      textColor: context.colorScheme.background,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.TOP,
+      timeInSecForIosWeb: 1,
+      fontSize: 16.0,
+    );
+  }
+
+  static void showLongTop(BuildContext context, String msg, {bool cancel = false}) {
+    if (cancel) Fluttertoast.cancel();
+
+    Fluttertoast.showToast(
+      msg: msg,
+      backgroundColor: context.colorScheme.onBackground,
+      textColor: context.colorScheme.background,
+      toastLength: Toast.LENGTH_LONG,
+      gravity: ToastGravity.TOP,
+      timeInSecForIosWeb: 1,
+      fontSize: 16.0,
+    );
+  }
+
+  static void showShortCenter(BuildContext context, String msg, {bool cancel = false}) {
+    if (cancel) Fluttertoast.cancel();
+
+    Fluttertoast.showToast(
+      msg: msg,
+      backgroundColor: context.colorScheme.onBackground,
+      textColor: context.colorScheme.background,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.CENTER,
+      timeInSecForIosWeb: 1,
+      fontSize: 16.0,
+    );
+  }
+
+  static void showLongCenter(BuildContext context, String msg, {bool cancel = false}) {
+    if (cancel) Fluttertoast.cancel();
+
+    Fluttertoast.showToast(
+      msg: msg,
+      backgroundColor: context.colorScheme.onBackground,
+      textColor: context.colorScheme.background,
+      toastLength: Toast.LENGTH_LONG,
+      gravity: ToastGravity.CENTER,
+      timeInSecForIosWeb: 1,
+      fontSize: 16.0,
+    );
+  }
 }

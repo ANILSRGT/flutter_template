@@ -5,7 +5,7 @@ import '../init/cache/cache_manager.dart';
 import '../init/cache/caches/object_to_enums/itheme_enums.dart';
 import '../init/cache/icache.dart';
 import '../init/theme/itheme.dart';
-import '../init/theme/themes/main_theme/main_theme.dart';
+import '../init/theme/themes/main_theme.dart/main_theme.dart';
 
 class ThemeNotifier with ChangeNotifier {
   ITheme _currentTheme = MainTheme();
