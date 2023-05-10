@@ -15,12 +15,13 @@ class ThemeNotifier with ChangeNotifier {
   ThemeMode get currentThemeMode => _currentThemeMode;
 
   Future<void> init() async {
-    final theme = CacheManager.instance
+    final theme = CacheManager.instance.cache
         .getString(CacheKey.theme)
         ?.toEnum<IThemeEnum>(IThemeEnum.values)
         .themeClass;
-    final themeMode =
-        CacheManager.instance.getString(CacheKey.themeMode)?.toEnum<ThemeMode>(ThemeMode.values);
+    final themeMode = CacheManager.instance.cache
+        .getString(CacheKey.themeMode)
+        ?.toEnum<ThemeMode>(ThemeMode.values);
     _currentTheme = theme ?? MainTheme();
     _currentThemeMode = themeMode ?? ThemeMode.system;
     notifyListeners();
@@ -28,13 +29,13 @@ class ThemeNotifier with ChangeNotifier {
 
   Future<void> changeThemeMode(ThemeMode themeMode) async {
     _currentThemeMode = themeMode;
-    await CacheManager.instance.setString(CacheKey.themeMode, _currentThemeMode.toStr);
+    await CacheManager.instance.cache.setString(CacheKey.themeMode, _currentThemeMode.toStr);
     notifyListeners();
   }
 
   Future<void> changeTheme(ITheme theme) async {
     _currentTheme = theme;
-    await CacheManager.instance.setString(CacheKey.theme, _currentTheme.toEnumStr);
+    await CacheManager.instance.cache.setString(CacheKey.theme, _currentTheme.toEnumStr);
     notifyListeners();
   }
 }

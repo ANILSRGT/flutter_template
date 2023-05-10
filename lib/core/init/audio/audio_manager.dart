@@ -33,11 +33,11 @@ class AudioManager {
     for (var element in audioPlayers) {
       await element.setVolume(volume);
     }
-    await CacheManager.instance.setInt(CacheKey.soundVolume, (volume * 100).toInt());
+    await CacheManager.instance.cache.setInt(CacheKey.soundVolume, (volume * 100).toInt());
   }
 
   double getVolume() {
-    int? vol = CacheManager.instance.getInt(CacheKey.soundVolume, defaultValue: 100);
+    int? vol = CacheManager.instance.cache.getInt(CacheKey.soundVolume, defaultValue: 100);
     return vol! / 100;
   }
 

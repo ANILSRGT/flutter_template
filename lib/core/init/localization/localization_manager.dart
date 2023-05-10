@@ -14,7 +14,7 @@ class LocalizationManager {
 
   init() async {
     await EasyLocalization.ensureInitialized();
-    _startLocale = CacheManager.instance.getString(CacheKey.localeType)?.strToLocale;
+    _startLocale = CacheManager.instance.cache.getString(CacheKey.localeType)?.strToLocale;
   }
 
   final _enUSLocale = const Locale('en', 'US');
@@ -29,7 +29,7 @@ class LocalizationManager {
 
   void setLocale(BuildContext ctx, Locale locale) async {
     await ctx.setLocale(locale);
-    await CacheManager.instance.setString(CacheKey.localeType, locale.localeName);
+    await CacheManager.instance.cache.setString(CacheKey.localeType, locale.localeName);
   }
 }
 
